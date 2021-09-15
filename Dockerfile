@@ -13,4 +13,6 @@ RUN npm run build
 
 # PHASE 2
 FROM nginx
+# Below instruction is useless for our locals, but for EBS it uses this as the port for incoming traffic
+EXPOSE 80
 COPY --from=builder /home/node/app/build /usr/share/nginx/html
